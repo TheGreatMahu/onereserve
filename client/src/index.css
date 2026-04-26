@@ -1,1 +1,124 @@
-/* Paste your index.css content here */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --teal-950: #0B3D40;
+  --teal-700: #146A70;
+  --gold-500: #C9963A;
+  --gold-400: #D4A847;
+  --cream: #F5EFE6;
+  --navy-900: #0A1628;
+  --white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--cream);
+  color: var(--navy-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-teal-950 text-white font-body font-600 px-6 py-3 rounded-lg 
+           hover:bg-teal-800 transition-all duration-200 
+           active:scale-95 shadow-card;
+  }
+  .btn-gold {
+    @apply bg-gold-500 text-navy-900 font-body font-700 px-6 py-3 rounded-lg 
+           hover:bg-gold-400 transition-all duration-200 
+           active:scale-95 shadow-gold;
+  }
+  .btn-outline {
+    @apply border-2 border-teal-950 text-teal-950 font-body font-600 px-6 py-3 
+           rounded-lg hover:bg-teal-950 hover:text-white 
+           transition-all duration-200 active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover 
+           transition-all duration-300;
+  }
+  .input-field {
+    @apply w-full bg-cream border border-teal-950/20 rounded-lg px-4 py-3 
+           font-body text-navy-900 placeholder-navy-900/40
+           focus:outline-none focus:ring-2 focus:ring-teal-700/40 focus:border-teal-700
+           transition-all duration-200;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-600 text-teal-950 leading-tight;
+  }
+  .tag {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-600 
+           font-body tracking-wide;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--teal-950);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-700);
+}
+
+/* React DatePicker overrides */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__input-container input {
+  width: 100%;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #e8ddd0 25%, #f0e8dc 50%, #e8ddd0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+/* Map container */
+.leaflet-container {
+  border-radius: 1rem;
+  z-index: 0;
+}
