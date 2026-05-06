@@ -1,24 +1,30 @@
 # .gitignore
 
-# Frontend
+# ─── Frontend ─────────────────────────────────────────────────
 node_modules/
 client/build/
 client/.env
 
-# Backend
+# ─── Backend (Python / Flask) ─────────────────────────────────
 venv/
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.pyw
+*.pyz
 server/.env
+server/instance/
 *.db
 *.sqlite3
 
-# OS
+# ─── OS ───────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 
-# IDE
+# ─── IDE ──────────────────────────────────────────────────────
 .vscode/
 .idea/
+*.swp
+*.swo
